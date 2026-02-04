@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { DM_Sans, Manrope } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
+import Header from "@/components/shared/Header";
+import ProviderSetup from "@/components/provider/Provider";
 
 const dmSans = DM_Sans({
- variable:'--font-dm-sans',
- subsets : ['latin']  
-})
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+});
 
 const manRope = Manrope({
   variable: "--font-manrope",
@@ -24,10 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${dmSans.variable} ${manRope.variable} antialiased`}
-      >
-        {children}
+      <body className={`${dmSans.variable} ${manRope.variable} antialiased`}>
+        <ProviderSetup>{children}</ProviderSetup>
       </body>
     </html>
   );
